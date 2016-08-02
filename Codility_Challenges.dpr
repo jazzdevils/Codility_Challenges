@@ -5,16 +5,6 @@ program Codility_Challenges;
 {$R *.res}
 
 uses
-  EMemLeaks,
-  EResLeaks,
-  EDialogWinAPIMSClassic,
-  EDialogWinAPIEurekaLogDetailed,
-  EDialogWinAPIStepsToReproduce,
-  EDebugExports,
-  EFixSafeCallException,
-  EMapWin32,
-  EAppVCL,
-  ExceptionLog7,
   System.SysUtils,
   System.Generics.Collections;
 
@@ -166,6 +156,22 @@ begin
   Result := iMin;
 end;
 
+function Distinct_solution(A: array of Integer; N: Integer): Integer;
+var
+  i, tmpValue: Integer;
+begin
+  TArray.Sort<Integer>(A);
+
+  tmpValue := A[0];
+  Result := 1;
+  for i := 1 to High(A) do begin
+    if A[i] <> tmpValue then begin
+      tmpValue := A[i];
+      Inc(Result);
+    end;
+  end;
+end;
+
 var
   A: array of Integer;
 begin
@@ -185,6 +191,9 @@ begin
 
     A := [3, 1, 2, 4, 3];
     Writeln('TapeEquilibrium : ' + IntToStr(TapeEquilibrium_solution(A, 5)));
+
+    A := [2, 1, 1, 2, 3, 1];
+    Writeln('Distinct : ' + IntToStr(Distinct_solution(A, 6)));
   except
     on E: Exception do
       Writeln(E.ClassName, ': ', E.Message);
