@@ -1,3 +1,4 @@
 # Codility_Challenges
 
-have fun with Pascal
+Have fun with Pascal!
+Also you can compile on Delphi Berlin~
