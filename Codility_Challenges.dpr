@@ -13,8 +13,8 @@ uses
   OddOccurrencesInArray in 'OddOccurrencesInArray.pas',
   PermMissingElem in 'PermMissingElem.pas',
   TapeEquilibrium in 'TapeEquilibrium.pas',
-  Distinct in 'Distinct.pas';
-
+  Distinct in 'Distinct.pas',
+  MaxProductOfThree in 'MaxProductOfThree.pas';
 
 var
   A: array of Integer;
@@ -38,8 +38,13 @@ begin
 
     A := [2, 1, 1, 2, 3, 1];
     Writeln('Distinct : ' + IntToStr(Distinct_solution(A, 6)));
+
+    A := [-3, -1, 2, -2, 5, 6];
+    Writeln('Distinct : ' + IntToStr(MaxProductOfThree_solution(A, 6)));
+
   except
     on E: Exception do
       Writeln(E.ClassName, ': ', E.Message);
   end;
 end.
+
